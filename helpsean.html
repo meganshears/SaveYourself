@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Tillana&display=swap" rel="stylesheet">
+
+    <title>Meet Sean!</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url("imgs/textboxsean.png");
+            background-size: cover;
+            background-position: center center;
+        }
+
+        h1 {
+            font-size: 61px;
+            font-family: 'Tillana', cursive;
+            position: absolute;
+            left: 140px;
+            top: 270px;
+            cursor: pointer;
+        }
+
+        p {
+            font-size: 53px;
+            font-family: 'Tillana', cursive;
+            position: absolute;
+            left: 140px;
+            top: 270px;
+            color: maroon;
+            cursor: pointer;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
+        #invisible2 {
+            top: 250px;
+        }
+
+        #last {
+            font-size: 90px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="visible">
+        A new face!
+        <br>
+        Hello, I’m Sean.
+        <br>
+        What brings you to our island?
+    </h1>
+
+    <p id="invisible" class="hide">
+        I-  I don’t know actually.
+        <br>
+        I was exploring these waters
+        <br>
+        and a storm came.
+        <br>
+        Next thing I know, I’m on this island.
+    </p>
+
+    <h1 id="invisible2" class="hide">
+        Oh my!
+        <br>
+        I’m quite sorry to hear that!
+        <br>
+        You must be tired.
+        <br>
+        Please, come in and lay down.
+    </h1>
+
+    <p onclick="window.location.href='file:///Users/suckmypineapple/Downloads/capstone/Website/zoomedin2.html'" id="last" class="hide">
+        That’s nice of you,
+        <br>
+        thank you.
+    </p>
+
+    <script>
+        var audio = document.createElement('audio');
+        audio.setAttribute('autoplay', '');
+        audio.setAttribute('loop', '');
+        var source = document.createElement('source');
+        source.setAttribute('src', 'sound/waves.wav');
+        source.setAttribute('type', 'audio/mpeg');
+        audio.appendChild(source);
+        document.body.appendChild(audio);
+        audio.volume = 0.3;
+
+        $('#visible').click(function () {
+            $('#invisible').show();
+            $('#visible').hide();
+        });
+
+        $('#invisible').click(function () {
+            $('#invisible2').show();
+            $('#invisible').hide();
+        });
+
+        $('#invisible2').click(function () {
+            $('#last').show();
+            $('#invisible2').hide();
+        });
+           
+            //count++;
+
+            //if (count === 1) {
+            //    $('#invisible').show();
+            //    $('#visible').hide();
+            //}
+
+            //if (count === 2) {
+            //    $('#invisible2').show();
+            //    $('#invisible').hide();
+            //}
+    </script>
+</body>
+</html>

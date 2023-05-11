@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <link href="https://fonts.googleapis.com/css2?family=Tillana&display=swap" rel="stylesheet">
+
+    <title>Tasks</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+
+    <style>
+        body {
+            background-image: url(imgs/clipboard.png);
+            background-repeat: no-repeat;
+            background-size: 40%;
+            background-position: center top -20px;
+            background-attachment: fixed;
+            background-color: bisque;
+        }
+
+        *,
+        *:before,
+        *:after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 30%;
+            top: 250px;
+            left:840px;
+            background: white;
+            border-radius: 10px;
+            position: fixed;
+            min-height: 100px;
+            transform: translate(-50%,-50%);
+            opacity: 90%;
+        }
+
+        #newtask {
+            position: relative;
+            padding: 30px 20px;
+        }
+
+            #newtask input {
+                width: 75%;
+                height: 45px;
+                padding: 12px;
+                color: #111111;
+                font-weight: 500;
+                position: relative;
+                border-radius: 5px;
+                font-family: 'Tillana', cursive;
+                font-size: 15px;
+                border: 2px solid #d1d3d4;
+            }
+
+                #newtask input:focus {
+                    outline: none;
+                    border-color: #0d75ec;
+                }
+
+            #newtask button {
+                position: relative;
+                float: right;
+                font-weight: 500;
+                font-size: 18px;
+                background-color: darkgreen;
+                border: none;
+                color: #ffffff;
+                cursor: pointer;
+                outline: none;
+                width: 20%;
+                height: 45px;
+                border-radius: 5px;
+                font-family: 'Tillana', cursive;
+            }
+
+        #tasks {
+            border-radius: 10px;
+            width: 100%;
+            position: fixed;
+            background-color: #ffffff;
+            padding: 0px 20px;
+            margin-top: 10px;
+        }
+
+        .task {
+            border-radius: 5px;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #939697;
+            cursor: pointer;
+            background-color: #c5e1e6;
+            height: 50px;
+            margin-bottom: 8px;
+            padding: 5px 10px;
+            display: flex;
+        }
+
+            .task span {
+                font-family: 'Tillana', cursive;
+                font-size: 25px;
+                font-weight: 400;
+            }
+
+            .task button {
+                background-color: darkred;
+                color: #ffffff;
+                border: none;
+                cursor: pointer;
+                outline: none;
+                height: 100%;
+                width: 40px;
+                border-radius: 5px;
+                font-family: 'Tillana', cursive;
+                font-size: 25px;
+            }
+
+        #keep-tab-open {
+            position: fixed;
+            top: 10%;
+            left: 140px;
+            transform: translate(0, -50%);
+            font-size: 20px;
+            font-weight: bold;
+            color: #666;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            font-family: 'Tillana', cursive;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="newtask">
+            <input type="text" placeholder="Add Items You've Collected">
+            <button id="push">Add</button>
+        </div>
+        <div id="tasks"></div>
+    </div>
+
+    <div id="keep-tab-open">
+        KEEP THIS TAB OPEN
+    </div>
+
+    <script>
+        var mouseDown = false;
+        var lastMouseX = null;
+        var lastMouseY = null;
+        var keepTabOpen = document.querySelector('#keep-tab-open');
+        var numFlashes = 5;
+        var flashInterval = setInterval(function () {
+            if (numFlashes-- == 0) {
+                clearInterval(flashInterval);
+                keepTabOpen.style.display = "none";
+            } else {
+                keepTabOpen.style.visibility = (keepTabOpen.style.visibility == "hidden") ? "visible" : "hidden";
+            }
+        }, 500);
+
+        document.querySelector('#push').onclick = function () {
+            if (document.querySelector('#newtask input').value.length == 0) {
+                alert("Kindly Enter Item Name!!!!")
+            } else {
+                document.querySelector('#tasks').innerHTML += `
+                                                <div class="task">
+                                                  <span id="taskname">
+                                                    ${document.querySelector('#newtask input').value}
+                                                  </span>
+                                                  <button class="delete">
+                                                    <i class="far fa-trash-alt">X</i>
+                                                  </button>
+                                                </div>
+                                              `;
+                var current_tasks = document.querySelectorAll(".delete");
+                var __ed_loopvar1 = Date.now();
+                for (var i = 0; i < current_tasks.length; i++) {
+                    if (Date.now() - __ed_loopvar1 > 3000) {
+                        document.body.innerHTML = "Infinite Loop Detected!";
+                        throw new Error("Infinite loop");
+                        break;
+                    }
+                    current_tasks[i].onclick = function () {
+                        this.parentNode.remove();
+                    }
+                }
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Tillana&display=swap" rel="stylesheet">
+
+    <title>You Escaped!</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url("imgs/finishbeach.png");
+            background-size: cover;
+            background-position: center center;
+        }
+
+        h1 {
+            font-size: 61px;
+            font-family: 'Tillana', cursive;
+            position: absolute;
+            left: 140px;
+            top: 270px;
+            cursor: pointer;
+            color: #AF9117;
+        }
+
+        p {
+            font-size: 53px;
+            font-family: 'Tillana', cursive;
+            position: absolute;
+            left: 140px;
+            top: 270px;
+            color: maroon;
+            cursor: pointer;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
+        #invisible2 {
+            top: 250px;
+        }
+
+        #last {
+            font-size: 90px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="visible">
+        You Sucessfully Built a Boat and Went Home!
+        <br>
+        <span style="display: block; text-align: center; font-size: 70px;">CONGRATS</span>
+    </h1>
+
+    <p onclick="window.location.href='file:///Users/suckmypineapple/Downloads/capstone/Website/index.html'" id="last" class="hide">
+        <span style="display: block; text-align: center;">BACK TO BEGINNING</span>
+    </p>
+
+    <script>
+        var audio = document.createElement('audio');
+        audio.setAttribute('autoplay', '');
+        audio.setAttribute('loop', '');
+        var source = document.createElement('source');
+        source.setAttribute('src', 'sound/tropicalmusic.mp3');
+        source.setAttribute('type', 'audio/mpeg');
+        audio.appendChild(source);
+        document.body.appendChild(audio);
+        audio.volume = 0.3;
+
+        $('#visible').click(function () {
+            $('#last').show();
+            $('#visible').hide();
+        });
+
+            //count++;
+
+            //if (count === 1) {
+            //    $('#invisible').show();
+            //    $('#visible').hide();
+            //}
+
+            //if (count === 2) {
+            //    $('#invisible2').show();
+            //    $('#invisible').hide();
+            //}
+    </script>
+</body>
+</html>

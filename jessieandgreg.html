@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Tillana&display=swap" rel="stylesheet">
+
+    <title>Meet Jessie and Greg!</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url("imgs/textboxjessieandgreg.png");
+            background-size: cover;
+            background-position: center center;
+        }
+
+        h1 {
+            font-size: 45px;
+            font-family: 'Tillana', cursive;
+            position: absolute;
+            left: 140px;
+            top: 255px;
+            cursor: pointer;
+            width: 850px;
+            word-wrap: break-word;
+        }
+
+        p {
+            font-size: 65px;
+            font-family: 'Tillana', cursive;
+            position: absolute;
+            left: 140px;
+            top: 230px;
+            color: maroon;
+            cursor: pointer;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .button {
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h1 onclick="window.location.href = 'file:///Users/suckmypineapple/Downloads/capstone/Website/greg.html';" id="visible">
+        Excuse me, sir?
+        <br>
+        I’ve promised my son, Greg that I would catch a butterfly for him, but I can’t seem to do it.
+        <br>
+        It would make his day, he’s over in that field.
+    </h1>
+
+    <script>
+        var audio = document.createElement('audio');
+        audio.setAttribute('autoplay', '');
+        audio.setAttribute('loop', '');
+        var source = document.createElement('source');
+        source.setAttribute('src', 'sound/waves.wav');
+        source.setAttribute('type', 'audio/mpeg');
+        audio.appendChild(source);
+        document.body.appendChild(audio);
+        audio.volume = 0.3;
+
+        $(function () {
+            $("#visible").click(function () {
+                $('#invisible').toggleClass("show");
+                $('#visible').hide();
+            });
+        });
+    </script>
+</body>
+</html>

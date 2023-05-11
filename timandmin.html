@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Tillana&display=swap" rel="stylesheet">
+
+    <title>Meet Timmy and Minnie!</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url("imgs/textboxtim.png");
+            background-size: cover;
+            background-position: center center;
+        }
+
+        h1 {
+            font-size: 39px;
+            font-family: 'Tillana', cursive;
+            position: absolute;
+            left: 140px;
+            top: 275px;
+            cursor: pointer;
+            width: 850px;
+            word-wrap: break-word;
+        }
+
+        p {
+            font-size: 65px;
+            font-family: 'Tillana', cursive;
+            position: absolute;
+            left: 140px;
+            top: 230px;
+            color: maroon;
+            cursor: pointer;
+        }
+
+        h2 {
+            font-size: 48px;
+            font-family: 'Tillana', cursive;
+            position: absolute;
+            left: 140px;
+            top: 340px;
+            color: blue;
+            cursor: pointer;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="visible">
+        Hey stranger! You think you could help me out?
+        <br>
+        I have this garden that my fellow islanders love. I just lost my darn cat again,
+        <br>
+        and it’s time for the plants to be pulled.
+        <br>
+        Do you think you could help me pull my plants?
+    </h1>
+
+    <h2 onclick="window.location.href='file:///Users/suckmypineapple/Downloads/capstone/Website/zoomedin4.html'" id="invisible" class="hide">
+        YOU GOT WOOD FROM HELPING TIMMY
+        <br>
+        <span style="display: block; text-align: center;">(+10 Wood)</span>
+    </h2>
+
+    <script>
+        var audio = document.createElement('audio');
+        audio.setAttribute('autoplay', '');
+        audio.setAttribute('loop', '');
+        var source = document.createElement('source');
+        source.setAttribute('src', 'sound/waves.wav');
+        source.setAttribute('type', 'audio/mpeg');
+        audio.appendChild(source);
+        document.body.appendChild(audio);
+        audio.volume = 0.3;
+
+        $('#visible').click(function () {
+            $('#invisible').show();
+            $('#visible').hide();
+        });
+    </script>
+</body>
+</html>

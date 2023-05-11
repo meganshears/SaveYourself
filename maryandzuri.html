@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Tillana&display=swap" rel="stylesheet">
+
+    <title>Meet Mary and Zuri!</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url("imgs/textboxmaryandzuri.png");
+            background-size: cover;
+            background-position: center center;
+        }
+
+        h1 {
+            font-size: 45px;
+            font-family: 'Tillana', cursive;
+            position: absolute;
+            left: 140px;
+            top: 255px;
+            cursor: pointer;
+            width: 850px;
+            word-wrap: break-word;
+        }
+
+        p {
+            font-size: 65px;
+            font-family: 'Tillana', cursive;
+            position: absolute;
+            left: 140px;
+            top: 230px;
+            color: maroon;
+            cursor: pointer;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
+        #invisible2 {
+            font-size: 65px;
+            top: 270px;
+        }
+
+        #invisible3 {
+            font-size: 60px;
+            top: 340px;
+        }
+
+        #last {
+            font-size: 70px;
+            top: 240px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="visible">
+        Z- I just love when it’s sunny on this island! Oh! Hello, there young man! I didn’t see you!
+        <br>
+        My name is Zuri, and this is Mary. We are roommates on this island. I don’t believe I have seen you before…
+    </h1>
+
+    <p id="invisible" class="hide">
+        That’s right.
+        <br>
+        My name is Manny.
+        <br>
+        I just got here.
+        <br>
+        ...Well, I actually crashed here.
+    </p>
+
+    <h1 id="invisible2" class="hide">
+        Z- Well, I hope you’re all right!
+        <br>
+        Did you visit the medic yet?
+    </h1>
+
+    <p id="invisible3" class="hide">
+        I didn’t know there was a medic.
+    </p>
+
+    <h1 onclick="window.location.href='file:///Users/suckmypineapple/Downloads/capstone/Website/zoomedin6.html'" id="last" class="hide">
+        M- Well of course there is!
+        <br>
+        She’s Northeast of our hut.
+    </h1>
+
+    <script>
+        var audio = document.createElement('audio');
+        audio.setAttribute('autoplay', '');
+        audio.setAttribute('loop', '');
+        var source = document.createElement('source');
+        source.setAttribute('src', 'sound/waves.wav');
+        source.setAttribute('type', 'audio/mpeg');
+        audio.appendChild(source);
+        document.body.appendChild(audio);
+        audio.volume = 0.3;
+
+        $('#visible').click(function () {
+            $('#invisible').show();
+            $('#visible').hide();
+        });
+
+        $('#invisible').click(function () {
+            $('#invisible2').show();
+            $('#invisible').hide();
+        });
+
+        $('#invisible2').click(function () {
+            $('#invisible3').show();
+            $('#invisible2').hide();
+        });
+
+        $('#invisible3').click(function () {
+            $('#last').show();
+            $('#invisible3').hide();
+        });
+    </script>
+
+</body>
+</html>

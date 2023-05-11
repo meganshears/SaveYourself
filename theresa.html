@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Tillana&display=swap" rel="stylesheet">
+
+    <title>Meet Theresa the nurse!</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url("imgs/textboxtheresa.png");
+            background-size: cover;
+            background-position: center center;
+        }
+
+        h1 {
+            font-size: 70px;
+            font-family: 'Tillana', cursive;
+            position: absolute;
+            left: 140px;
+            top: 220px;
+            cursor: pointer;
+            width: 850px;
+            word-wrap: break-word;
+        }
+
+        p {
+            font-size: 70px;
+            font-family: 'Tillana', cursive;
+            position: absolute;
+            left: 140px;
+            top: 245px;
+            color: maroon;
+            cursor: pointer;
+        }
+
+        #invisible2 {
+            font-size: 90px;
+            font-family: 'Tillana', cursive;
+            position: absolute;
+            left: 140px;
+            top: 340px;
+            cursor: pointer;
+            width: 850px;
+            word-wrap: break-word;
+        }
+
+        #invisible3 {
+            top: 310px;
+            position: absolute;
+            cursor: pointer;
+        }
+
+        #invisible4 {
+            font-size: 90px;
+            top: 280px;
+            left: 240px;
+            position: absolute;
+            cursor: pointer;
+        }
+
+        #invisible5 {
+            font-size: 50px;
+            top: 350px;
+            position: absolute;
+            cursor: pointer;
+        }
+
+        #invisible6 {
+            font-size: 90px;
+            left: 170px;
+            position: absolute;
+            cursor: pointer;
+        }
+
+        #invisible7 {
+            font-size: 68px;
+            top: 270px;
+            position: absolute;
+            cursor: pointer;
+        }
+
+        #last {
+            font-size: 80px;
+            top: 225px;
+            position: absolute;
+            cursor: pointer;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .button {
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="visible">
+        <span style="display: block; text-align: center; font-size: 70px;">Hey there!</span>
+        <br>
+        Oh... it looks like you were banged up.
+    </h1>
+
+    <p id="invisible" class="hide">
+        Yeah, I guess I crashed my
+        <br>
+        row boat in a storm
+        <br>
+        and landed on this island.
+    </p>
+
+    <h1 id="invisible2" class="hide">
+        Wow! Are you okay?
+    </h1>
+
+    <p id="invisible3" class="hide">
+        Yeah, I think so…
+        <br>
+        I guess that’s why I’m here.
+    </p>
+
+    <h1 id="invisible4" class="hide">
+        Of course!
+        <br>
+        Please sit down!
+    </h1>
+
+    <h1 id="invisible5" class="hide">
+        So, it looks like some minor scratches.
+        <br>
+        <span style="display: block; text-align: center; font-size: 70px;">I patched you up just fine!</span>
+    </h1>
+
+    <p id="invisible6" class="hide">
+        Thank you so much,
+        <br>
+        what do I owe you?
+    </p>
+
+    <h1 id="invisible7" class="hide">
+        <span style="display: block; text-align: center; font-size: 70px;">Oh please!</span>
+        <br>
+        You don’t owe me anything!
+    </h1>
+
+    <p onclick="window.location.href='file:///Users/suckmypineapple/Downloads/capstone/Website/finish.html'" id="last" class="hide">
+        Really?
+        <br>
+        Well, thanks.
+        <br>
+        I’ll see you around.
+    </p>
+
+    <script>
+        var audio = document.createElement('audio');
+        audio.setAttribute('autoplay', '');
+        audio.setAttribute('loop', '');
+        var source = document.createElement('source');
+        source.setAttribute('src', 'sound/waves.wav');
+        source.setAttribute('type', 'audio/mpeg');
+        audio.appendChild(source);
+        document.body.appendChild(audio);
+        audio.volume = 0.3;
+
+        $('#visible').click(function () {
+            $('#invisible').show();
+            $('#visible').hide();
+        });
+
+        $('#invisible').click(function () {
+            $('#invisible2').show();
+            $('#invisible').hide();
+        });
+
+        $('#invisible2').click(function () {
+            $('#invisible3').show();
+            $('#invisible2').hide();
+        });
+
+        $('#invisible3').click(function () {
+            $('#invisible4').show();
+            $('#invisible3').hide();
+        });
+
+        $('#invisible4').click(function () {
+            $('#invisible5').show();
+            $('#invisible4').hide();
+        });
+
+        $('#invisible5').click(function () {
+            $('#invisible6').show();
+            $('#invisible5').hide();
+        });
+
+        $('#invisible6').click(function () {
+            $('#invisible7').show();
+            $('#invisible6').hide();
+        });
+
+        $('#invisible7').click(function () {
+            $('#last').show();
+            $('#invisible7').hide();
+        });
+    </script>
+</body>
+</html>

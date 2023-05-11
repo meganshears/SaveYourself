@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--<link rel="stylesheet" href="https://use.typekit.net/tda6neh.css">-->
+    <link href="https://fonts.googleapis.com/css2?family=Tillana&display=swap" rel="stylesheet">
+
+    <title>Loading Screen</title>
+    <style>
+        /* Center the loading text vertically and horizontally */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url("imgs/loadingscreenbackground.png");
+            background-size: cover;
+            background-position: center center;
+        }
+
+        h1 {
+            font-size: 8rem;
+            text-align: center;
+            color: gold;
+            font-family: 'Tillana', cursive;
+            font-style: normal;
+            font-weight: 800;
+            animation: fadein 2s ease-in-out forwards;
+        }
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body onload="setTimeout(function() { window.location.href = 'homepage.html'; }, 3000);">
+    <h1>Save Yourself</h1>
+</body>
+</html>

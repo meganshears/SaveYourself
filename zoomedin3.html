@@ -1,0 +1,474 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <link href="https://fonts.googleapis.com/css2?family=Tillana&display=swap" rel="stylesheet">
+
+    <title>Island</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            cursor: move;
+        }
+
+        #image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: blue;
+            background-image: url('imgs/islandzoom.png');
+            background-size: 100% 100%;
+            background-position: center center;
+            transform: scale(2); /* Zoom in by a factor of 2 */
+            transform-origin: center center;
+            cursor: move;
+        }
+
+        .sean {
+            position: absolute;
+            top: 220px;
+            right: 680px;
+            width: 5%;
+            height: 7%;
+            cursor: pointer;
+        }
+
+        /*            .sean:hover {
+                color: #111;
+                filter: drop-shadow(0px 0px 20px yellow);
+            }*/
+
+        .nick {
+            position: absolute;
+            top: 580px;
+            right: 740px;
+            width: 5%;
+            height: 7%;
+            cursor: pointer;
+        }
+
+/*            .nick:hover {
+                color: #111;
+                filter: drop-shadow(0px 0px 20px yellow);
+            }*/
+
+        .timandmin {
+            position: absolute;
+            top: 300px;
+            right: 935px;
+            width: 5%;
+            height: 7%;
+            cursor: pointer;
+        }
+
+            .timandmin:hover {
+                color: #111;
+                filter: drop-shadow(0px 0px 20px yellow);
+            }
+
+        .zuri {
+            position: absolute;
+            top: 400px;
+            right: 730px;
+            width: 23px;
+            height: 50px;
+            cursor: pointer;
+        }
+
+            .zuri:hover {
+                color: #111;
+                filter: drop-shadow(0px 0px 20px yellow);
+            }
+
+        .mary {
+            position: absolute;
+            top: 400px;
+            right: 680px;
+            width: 5%;
+            height: 7%;
+            cursor: pointer;
+        }
+
+            .mary:hover {
+                color: #111;
+                filter: drop-shadow(0px 0px 20px yellow);
+            }
+
+        .greg {
+            position: absolute;
+            top: 545px;
+            right: 450px;
+            width: 3%;
+            height: 5%;
+            cursor: pointer;
+        }
+
+            .greg:hover {
+                color: #111;
+                filter: drop-shadow(0px 0px 20px yellow);
+            }
+
+        .jessie {
+            position: absolute;
+            top: 475px;
+            right: 470px;
+            width: 5%;
+            height: 7%;
+            cursor: pointer;
+        }
+
+            .jessie:hover {
+                color: #111;
+                filter: drop-shadow(0px 0px 20px yellow);
+            }
+
+        .theresa {
+            position: absolute;
+            top: 240px;
+            right: 490px;
+            width: 5%;
+            height: 7%;
+            cursor: pointer;
+        }
+
+        /*                    .theresa:hover {
+                color: #111;
+                filter: drop-shadow(0px 0px 20px yellow);
+            }*/
+
+        *,
+        *:before,
+        *:after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 10%;
+            top: 80px;
+            left: 190px;
+            background: #964B00;
+            border-radius: 10px;
+            position: fixed;
+            min-height: 100px;
+            transform: translate(-50%,-50%);
+            opacity: 100%;
+        }
+
+        #newtask {
+            position: relative;
+            padding: 30px 20px;
+        }
+
+            #newtask input {
+                width: 75%;
+                height: 45px;
+                padding: 12px;
+                color: #111111;
+                font-weight: 500;
+                position: relative;
+                border-radius: 5px;
+                font-family: 'Tillana', cursive;
+                font-size: 15px;
+                border: 2px solid #d1d3d4;
+            }
+
+                #newtask input:focus {
+                    outline: none;
+                    border-color: #0d75ec;
+                }
+
+            #newtask button {
+                position: relative;
+                font-weight: 500;
+                font-size: 18px;
+                background-color: darkgreen;
+                border: none;
+                color: #ffffff;
+                cursor: pointer;
+                outline: none;
+                width: 100%;
+                height: 45px;
+                border-radius: 5px;
+                font-family: 'Tillana', cursive;
+            }
+
+        #tasks {
+            border-radius: 10px;
+            width: 100%;
+            position: fixed;
+            background-color: #ffffff;
+            padding: 0px 20px;
+            margin-top: 10px;
+        }
+
+        .task {
+            border-radius: 5px;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #939697;
+            cursor: pointer;
+            background-color: #c5e1e6;
+            height: 50px;
+            margin-bottom: 8px;
+            padding: 5px 10px;
+            display: flex;
+        }
+
+            .task span {
+                font-family: 'Tillana', cursive;
+                font-size: 25px;
+                font-weight: 400;
+            }
+
+            .task button {
+                background-color: darkred;
+                color: #ffffff;
+                border: none;
+                cursor: pointer;
+                outline: none;
+                height: 100%;
+                width: 40px;
+                border-radius: 5px;
+                font-family: 'Tillana', cursive;
+                font-size: 25px;
+            }
+
+        .enemy {
+            position: absolute;
+            top: 320px;
+            left: 740px;
+                        opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            width: 5px;
+            height: 20px;
+        }
+
+            .enemy:hover {
+                position: absolute;
+                opacity: 1;
+                cursor: pointer;
+                width: 5px;
+                height: 20px;
+            }
+
+        .enemy2 {
+            position: absolute;
+            top: 400px;
+            left: 910px;
+                        opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            width: 5px;
+            height: 20px;
+        }
+
+            .enemy2:hover {
+                position: absolute;
+                opacity: 1;
+                cursor: pointer;
+                width: 5px;
+                height: 20px;
+            }
+
+        .enemy3 {
+            position: absolute;
+            top: 520px;
+            left: 1130px;
+                        opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            width: 5px;
+            height: 20px;
+        }
+
+            .enemy3:hover {
+                position: absolute;
+                opacity: 1;
+                cursor: pointer;
+                width: 5px;
+                height: 20px;
+            }
+
+        .enemy4 {
+            position: absolute;
+            top: 290px;
+            left: 1100px;
+                        opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            width: 10px;
+            height: 10px;
+        }
+
+            .enemy4:hover {
+                position: absolute;
+                opacity: 1;
+                cursor: pointer;
+                width: 10px;
+                height: 10px;
+            }
+
+        .enemy5 {
+            position: absolute;
+            top: 470px;
+            left: 740px;
+                        opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            width: 10px;
+            height: 10px;
+        }
+
+            .enemy5:hover {
+                position: absolute;
+                opacity: 1;
+                cursor: pointer;
+                width: 10px;
+                height: 10px;
+            }
+
+        .enemy6 {
+            position: absolute;
+            top: 600px;
+            left: 850px;
+                        opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            width: 10px;
+            height: 10px;
+        }
+
+            .enemy6:hover {
+                position: absolute;
+                opacity: 1;
+                cursor: pointer;
+                width: 10px;
+                height: 10px;
+            }
+
+        .enemy7 {
+            position: absolute;
+            top: 400px;
+            left: 1050px;
+                        opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            width: 10px;
+            height: 10px;
+        }
+
+            .enemy7:hover {
+                position: absolute;
+                opacity: 1;
+                cursor: pointer;
+                width: 10px;
+                height: 10px;
+            }
+
+        .enemy8 {
+            position: absolute;
+            top: 320px;
+            left: 910px;
+                        opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            width: 10px;
+            height: 10px;
+        }
+
+            .enemy8:hover {
+                position: absolute;
+                opacity: 1;
+                cursor: pointer;
+                width: 10px;
+                height: 10px;
+            }
+    </style>
+</head>
+<body>
+    <div id="image">
+        <img class="sean" src="imgs/sean.png" alt="sean" />
+        <img class="nick" onclick="window.location.href='file:///Users/suckmypineapple/Downloads/capstone/Website/zoomedin2.html'" src="imgs/nick.png" alt="nick" />
+        <img class="timandmin" onclick="window.location.href='file:///Users/suckmypineapple/Downloads/capstone/Website/timandmin.html'" src="imgs/timmyandminnie.png" alt="timandmin" />
+        <img class="zuri" onclick="window.location.href='file:///Users/suckmypineapple/Downloads/capstone/Website/zoomedin2.html'" src="imgs/zuri.png" alt="zuri" />
+        <img class="mary" onclick="window.location.href='file:///Users/suckmypineapple/Downloads/capstone/Website/zoomedin2.html'" src="imgs/mary.png" alt="mary" />
+        <img class="greg" onclick="window.location.href='file:///Users/suckmypineapple/Downloads/capstone/Website/zoomedin2.html'" src="imgs/greg.png" alt="greg" />
+        <img class="jessie" onclick="window.location.href='file:///Users/suckmypineapple/Downloads/capstone/Website/zoomedin2.html'" src="imgs/jessie.png" alt="jessie" />
+        <img class="theresa" src="imgs/theresa.png" alt="theresa" />
+        <img src="imgs/snake.png" alt="Enemy" class="enemy" onmouseover="goToEnemyPage()" />
+        <img src="imgs/snake.png" alt="Enemy" class="enemy2" onmouseover="goToEnemyPage()" />
+        <img src="imgs/snake.png" alt="Enemy" class="enemy3" onmouseover="goToEnemyPage()" />
+        <img src="imgs/spider.png" alt="Enemy" class="enemy4" onmouseover="goToEnemyPage2()" />
+        <img src="imgs/spider.png" alt="Enemy" class="enemy5" onmouseover="goToEnemyPage2()" />
+        <img src="imgs/scorpion.png" alt="Enemy" class="enemy6" onmouseover="goToEnemyPage3()" />
+        <img src="imgs/scorpion.png" alt="Enemy" class="enemy7" onmouseover="goToEnemyPage3()" />
+        <img src="imgs/scorpion.png" alt="Enemy" class="enemy8" onmouseover="goToEnemyPage3()" />
+    </div>
+
+    <div class="container">
+        <div id="newtask">
+            <button id="push">Tasks</button>
+        </div>
+        <div id="tasks"></div>
+    </div>
+
+    <script>
+        var mouseDown = false;
+        var lastMouseX = null;
+        var lastMouseY = null;
+
+        function goToEnemyPage() {
+            window.location.href = "file:///Users/suckmypineapple/Downloads/capstone/Website/enemy.html";
+        }
+
+        function goToEnemyPage2() {
+            window.location.href = "file:///Users/suckmypineapple/Downloads/capstone/Website/enemy2.html";
+        }
+
+        function goToEnemyPage3() {
+            window.location.href = "file:///Users/suckmypineapple/Downloads/capstone/Website/enemy3.html";
+        }
+
+        var audio = document.createElement('audio');
+        audio.setAttribute('autoplay', '');
+        audio.setAttribute('loop', '');
+        var source = document.createElement('source');
+        source.setAttribute('src', 'sound/tropicalmusic.mp3');
+        source.setAttribute('type', 'audio/mpeg');
+        audio.appendChild(source);
+        document.body.appendChild(audio);
+        audio.volume = 0.1;
+
+        document.querySelector('#push').onclick = function () {
+            window.open('tasks.html', '_blank');
+        };
+
+        document.addEventListener('mousedown', function (e) {
+            mouseDown = true;
+            lastMouseX = e.clientX;
+            lastMouseY = e.clientY;
+        });
+
+        document.addEventListener('mouseup', function () {
+            mouseDown = false;
+        });
+
+        document.addEventListener('mousemove', function (e) {
+            if (!mouseDown) {
+                return;
+            }
+            var image = document.querySelector('#image');
+            var deltaX = e.clientX - lastMouseX;
+            var deltaY = e.clientY - lastMouseY;
+            var imageX = parseFloat(image.style.left) || 0;
+            var imageY = parseFloat(image.style.top) || 0;
+            image.style.left = imageX + deltaX + 'px';
+            image.style.top = imageY + deltaY + 'px';
+            lastMouseX = e.clientX;
+            lastMouseY = e.clientY;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Tillana&display=swap" rel="stylesheet">
+
+    <title>Meet Nick!</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url("imgs/textboxnick.png");
+            background-size: cover;
+            background-position: center center;
+        }
+
+        h1 {
+            font-size: 80px;
+            font-family: 'Tillana', cursive;
+            position: absolute;
+            left: 230px;
+            top: 300px;
+            cursor: pointer;
+            word-wrap: break-word;
+        }
+
+        p {
+            font-size: 90px;
+            font-family: 'Tillana', cursive;
+            position: absolute;
+            left: 310px;
+            top: 310px;
+            color: maroon;
+            cursor: pointer;
+        }
+
+        #invisible2 {
+            font-size: 42px;
+            left: 140px;
+            top: 350px;
+        }
+
+        #invisible3 {
+            font-size: 40px;
+            left: 200px;
+            top: 350px;
+        }
+
+        #invisible4 {
+            left: 140px;
+            font-size: 75px;
+            top: 360px;
+        }
+
+        #last {
+            font-size: 46px;
+            font-family: 'Tillana', cursive;
+            position: absolute;
+            left: 140px;
+            top: 370px;
+            color: blue;
+            cursor: pointer;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .button {
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="visible">
+        Hey, you there!
+        <br>
+        You like seashells?
+    </h1>
+
+    <p id="invisible" class="hide">
+        Uh… sure?
+    </p>
+
+    <h1 id="invisible2" class="hide">
+        <span style="display: block; text-align: center; font-size: 70px;">Great!</span>
+        <br>
+        Do you wanna try to beat me in a contest?
+    </h1>
+
+    <h1 id="invisible3" class="hide">
+        <span style="display: block; text-align: center; font-size: 70px;">It’s really simple!</span>
+        <br>
+        You just gotta go down to the beach and
+        <br>
+        scoop as many seashells as you can!
+    </h1>
+
+    <p id="invisible4" class="hide">
+        Oh, I guess that is simple.
+    </p>
+
+    <h2 onclick="window.location.href='file:///Users/suckmypineapple/Downloads/capstone/Website/zoomedin3.html'" id="last" class="hide">
+        NICK GAVE YOU ROPE FOR BEATING HIM
+        <br>
+        <span style="display: block; text-align: center; font-size: 70px;">(+1 Rope)</span>
+    </h2>
+
+    <script>
+        var audio = document.createElement('audio');
+        audio.setAttribute('autoplay', '');
+        audio.setAttribute('loop', '');
+        var source = document.createElement('source');
+        source.setAttribute('src', 'sound/waves.wav');
+        source.setAttribute('type', 'audio/mpeg');
+        audio.appendChild(source);
+        document.body.appendChild(audio);
+        audio.volume = 0.3;
+
+        $('#visible').click(function () {
+            $('#invisible').show();
+            $('#visible').hide();
+        });
+
+        $('#invisible').click(function () {
+            $('#invisible2').show();
+            $('#invisible').hide();
+        });
+
+        $('#invisible2').click(function () {
+            $('#invisible3').show();
+            $('#invisible2').hide();
+        });
+
+        $('#invisible3').click(function () {
+            $('#invisible4').show();
+            $('#invisible3').hide();
+        });
+
+        $('#invisible4').click(function () {
+            $('#last').show();
+            $('#invisible4').hide();
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Tillana&display=swap" rel="stylesheet">
+
+    <title>Help Greg!</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url("imgs/textboxgreg.png");
+            background-size: cover;
+            background-position: center center;
+        }
+
+        h1 {
+            font-size: 53px;
+            font-family: 'Tillana', cursive;
+            position: absolute;
+            left: 140px;
+            top: 300px;
+            cursor: pointer;
+            word-wrap: break-word;
+        }
+
+        p {
+            font-size: 65px;
+            font-family: 'Tillana', cursive;
+            position: absolute;
+            left: 140px;
+            top: 250px;
+            color: maroon;
+            cursor: pointer;
+            width: 850px;
+            word-wrap: break-word;
+        }
+
+        #invisible2 {
+            font-size: 62px;
+            left: 140px;
+            top: 300px;
+        }
+
+        #last {
+            font-size: 49px;
+            font-family: 'Tillana', cursive;
+            position: absolute;
+            left: 160px;
+            top: 310px;
+            color: blue;
+            cursor: pointer;
+            width: 850px;
+            word-wrap: break-word;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .button {
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <p id="visible">
+        Hey Greg, my name’s Manny,
+        <br>
+        I heard you wanted to catch one of these butterflies.
+    </p>
+
+    <h1 id="invisible" class="hide">
+        Yeah, I really want to,
+        <br>
+        but my mom tried and she couldn’t.
+        <br>
+        I’ve been trying ever since.
+    </h1>
+
+    <p id="invisible2" class="hide">
+        Well, let me see if I can catch one for you.
+    </p>
+
+    <h2 onclick="window.location.href='file:///Users/suckmypineapple/Downloads/capstone/Website/zoomedin5.html'" id="last" class="hide">
+        GREG GAVE YOU HIS DUCT TAPE FOR CATCHING A BUTTERFLY FOR HIM.
+        <br>
+        <span style="display: block; text-align: center; font-size: 70px;">(+1 Duct Tape)</span>
+    </h2>
+
+    <script>
+        var audio = document.createElement('audio');
+        audio.setAttribute('autoplay', '');
+        audio.setAttribute('loop', '');
+        var source = document.createElement('source');
+        source.setAttribute('src', 'sound/waves.wav');
+        source.setAttribute('type', 'audio/mpeg');
+        audio.appendChild(source);
+        document.body.appendChild(audio);
+        audio.volume = 0.3;
+
+        $('#visible').click(function () {
+            $('#invisible').show();
+            $('#visible').hide();
+        });
+
+        $('#invisible').click(function () {
+            $('#invisible2').show();
+            $('#invisible').hide();
+        });
+
+        $('#invisible2').click(function () {
+            $('#last').show();
+            $('#invisible2').hide();
+        });
+    </script>
+</body>
+</html>
